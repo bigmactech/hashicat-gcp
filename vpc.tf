@@ -3,16 +3,16 @@ provider "null" {
 }
 
 locals {
-  subnet_01 = "${var.network_name}-subnet-01"
-  subnet_02 = "${var.network_name}-subnet-02"
-  subnet_03 = "${var.network_name}-subnet-03"
+  subnet_01 = "nick-subnet-01"
+  subnet_02 = "nick-subnet-02"
+  subnet_03 = "nick-subnet-03"
 }
 
 module "network" {
   source  = "app.terraform.io/nickworkshop-training/network/google"
   version = "2.3.0"
   project_id   = var.project
-  network_name = "nick-network"
+  
   subnets = [
     {
       subnet_name   = "${local.subnet_01}"
