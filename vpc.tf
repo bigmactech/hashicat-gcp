@@ -8,11 +8,11 @@ locals {
   subnet_03 = "${var.network_name}-subnet-03"
 }
 
-module "test-vpc-module" {
-  source       = "../../"
-  project_id   = var.project
-  network_name = "nickyoung-network"
 
+
+module "network" {
+  source  = "app.terraform.io/nickworkshop-training/network/google"
+  version = "2.3.0"
   subnets = [
     {
       subnet_name   = "${local.subnet_01}"
