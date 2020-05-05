@@ -54,12 +54,14 @@ resource "google_compute_instance" "hashicat" {
 
   metadata = {
     ssh-keys = "ubuntu:${chomp(tls_private_key.ssh-key.public_key_openssh)} terraform"
-    billable = "true"
-    department = "devops"
   }
 
-  tags = ["http-server","billable","department"]
+  tags = ["http-server"]
 
+  lables = {
+    billable = "true"
+    department = "devops"
+    }
 }
 
 resource "null_resource" "configure-cat-app" {
