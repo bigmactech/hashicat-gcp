@@ -8,11 +8,11 @@ locals {
   subnet_03 = "${var.network_name}-subnet-03"
 }
 
-
-
 module "network" {
   source  = "app.terraform.io/nickworkshop-training/network/google"
   version = "2.3.0"
+  project_id   = var.project
+  network_name = "nick-network"
   subnets = [
     {
       subnet_name   = "${local.subnet_01}"
