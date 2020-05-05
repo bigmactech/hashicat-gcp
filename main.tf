@@ -27,7 +27,7 @@ resource "google_compute_firewall" "http-server" {
 
   // Allow traffic from everywhere to instances with an http-server tag
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["http-server"]
+  target_tags   = ["http-server","billable","department"]
 }
 
 resource "tls_private_key" "ssh-key" {
