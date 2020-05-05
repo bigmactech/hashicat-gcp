@@ -27,7 +27,7 @@ resource "google_compute_firewall" "http-server" {
 
   // Allow traffic from everywhere to instances with an http-server tag
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["http-server","billable","department"]
+  target_tags   = ["http-server"]
 }
 
 resource "tls_private_key" "ssh-key" {
@@ -56,7 +56,7 @@ resource "google_compute_instance" "hashicat" {
     ssh-keys = "ubuntu:${chomp(tls_private_key.ssh-key.public_key_openssh)} terraform"
   }
 
-  tags = ["http-server"]
+  tags = ["http-server","billable","department"]
 
 }
 
