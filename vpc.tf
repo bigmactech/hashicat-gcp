@@ -10,8 +10,8 @@ locals {
 
 module "test-vpc-module" {
   source       = "../../"
-  project_id   = var.project_id
-  network_name = var.network_name
+  project_id   = var.project
+  network_name = "nickyoung-network"
 
   subnets = [
     {
